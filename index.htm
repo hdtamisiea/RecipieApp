@@ -5,36 +5,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Recipe App</title>
 </head>
 
 <body>
-    <header class="hero">
-        <h1 class="app-title">Insert Title Here</h1>
-        <p>Search any food ingredient to be able to see a list of great recipe ideas!</p>
+    <!-- <nav>
+        <div id="header" class="nav-wrapper">
+            <a href="#" class="brand-logo right">goRecette</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="sass.html">Nav1</a></li>
+                <li><a href="badges.html">Nav2</a></li>
+                <li><a href="collapsible.html">Nav3</a></li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <header id="header" class="row hero">
+        <h1 class="app-title white-text col s12 m12 l12 right-align"><a href="https://www.google.com/maps/"><img
+                    src="./assets/images/maps.jpg" id="header-img" class="col left-align"></a>goRecette</h1>
+        <p class="header-text">Search any food ingredient to be able to see a list of great recipe ideas! Then use the
+            link to locate a supermarket in your current area.</p>
     </header>
 
-    <main class="">
-        <div class=“card”>
-            <h3 class=“card-header text-uppercase”>Search BY Ingredient </h3>
-            <form id=“ingredient-form” class=“card-body”>
-              <label class=“form-label” for=“Ingredient”>Ingredient</label>
-              <input name=“ingredient ” id=“ingredient” type=“text” autofocus=“true” class=“form-input” />
-              <button type=“submit” class=“btn”>Get Recipes</button>
-            </form>
-          </div>
+    <main class="main">
+        <div class="row">
+            <div id="ingredient-form" class="col s12 m12 l3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./assets/images/food-on-table-6.jpg">
+                        <!-- <span class="card-title">Card Title</span> -->
+                    </div>
+                    <div class="card-content">
+                        <p>Search for a new recipe! Just enter an ingredient, and let us do the rest!</p>
+                        <h5 class=“card-header text-uppercase col m4 l3”>Search by Ingredient here: </h5>
+                        <form id=“ingredient-form” class=“card-body”>
+                            <input name=“ingredient ” id=“ingredient” type=“text” autofocus=“true” class=“form-input” />
+                            <button type=“submit” class=“btn”>Get Recipes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="list-container" class="col s12 m12 l8 offset-l1">
+                <h5 id="list-header" class="subtitle">Showing recipes for :</h5>
+                <div id="recipe-container" class="list-items">
+                    <div class="recipe-line center">Recipe One</div>
+
+                    <div class="recipe-line center">Recipe Two</div>
+                    <!-- recipes to be listed here -->
+                </div>
+            </div>
         </div>
 
-        <div class="">
-            <h2 class="subtitle">Showing recipes for:</h2>
-            <div id="recipe-container" class="list-items">
+        <div class="row">
+            <div id="maps-form" class="col s12 m12 l3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./assets/images/maps.jpg">
 
-
+                    </div>
+                    <div class="card-content">
+                        <p>Enter your zip code below for a list of nearby supermarkets:</p>
+                        <h5 class=“card-header text-uppercase col m4 l3”>Search by zip code here: </h5>
+                        <form id=“map-form” class=“card-body”>
+                            <input name="map" id="map" type=“text” autofocus=“true” class=“form-input” />
+                            <button type=“submit” class=“btn”>Get Map</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-
 </html>

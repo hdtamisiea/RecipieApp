@@ -1,0 +1,89 @@
+:root {
+    --primary: #f5d506;
+    --secondary: #12255d;
+    --tertiary: #839c4b ;
+    --light-dark: #abc5e0;
+    --light: #e9eae4;
+    --border-radius: .3rem;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  #header {
+      background-color: #12255d;
+  }
+
+  .app-title {
+    right: 0.5rem;
+    left: auto;
+  }
+
+  #header-img {
+      width: 170px;
+      height: 120px;
+      align-items: flex-start;
+  }
+
+  .header-text {
+      color:#f5d506;
+      margin-left: 1em;
+      margin-right: 1em;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  #ingredient-form {
+      background-color: var(--primary);
+  }
+
+  .btn {
+      background-color: #12255d; 
+      color:white;
+  }
+
+  .btn:hover {
+      background-color: #274ec2;
+  }
+  #maps-form {
+      background-color:#12255d;
+  }
+
+  #list-container {
+      background-color: #abc5e0;
+      /* margin-left: 3px; */
+  }
+
+  #recipe-container {
+      color:#f5d506;
+      padding-bottom: 3px;
+      margin-bottom: 3px;
+  }
+
+  .recipe-line {
+      background-color: #12255d;
+      margin-bottom: 10px;
+      line-height: 2.0;
+  }
+
+  .recipe-line:hover {
+      background-color: #274ec2;
+  }
+
+  body {
+    background-color: var(--light);
+    margin: 5px;
+    padding: 5px;
+    font-family: Pesto, helvetica, sans-serif;
+    color: var(--secondary);
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+
+
+
