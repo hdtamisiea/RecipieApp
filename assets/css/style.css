@@ -41,6 +41,14 @@
       background-color: var(--primary);
   }
 
+  .btn {
+      background-color: #12255d; 
+      color:white;
+  }
+
+  .btn:hover {
+      background-color: #274ec2;
+  }
   #maps-form {
       background-color:#12255d;
   }
@@ -62,6 +70,10 @@
       line-height: 2.0;
   }
 
+  .recipe-line:hover {
+      background-color: #274ec2;
+  }
+
   body {
     background-color: var(--light);
     margin: 5px;
@@ -73,7 +85,5 @@
   }
 
 
-header {
-    background-image: url(./assets/images/food.jpg);
-}
+
 
