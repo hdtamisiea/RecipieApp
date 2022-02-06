@@ -21,40 +21,53 @@ var getRecipes = function (value) {
             for (var i = 0; i < data.length; i++) {
                 console.log(data[i])
 
-    let recipeImage = data[i].image;
-    getRecipeImage(recipeImage)                
+                let recipeImage = data[i].image;
+                getRecipeImage(recipeImage)
                 let UsedIngredients = data[i].usedIngredients;
                 getUsedIngredients(UsedIngredients)
 
                 let missingIngredients = data[i].missedIngredients;
-            getMissingIngredients(missingIngredients)
+                getMissingIngredients(missingIngredients)
 
-            let recipeTitle = data[i].title;
-            getRecipeTitle(recipeTitle)
-               
+                let recipeTitle = data[i].title;
+                getRecipeTitle(recipeTitle)
+
+                let unusedIngredents = data[i].unusedIngredents
+                getUnusedIngredients(unusedIngredents)
+
+                let recipeId = data[i].id
+                getRecipeId(recipeId)
+
             }
         })
 }
-var getRecipeImage = function(data){
+var getUnusedIngredients = function (data) {
     console.log(data)
 }
-var getRecipeTitle = function(data){
+var getRecipeId = function(data){
     console.log(data)
 }
-var getMissingIngredients = function(data){
+var getRecipeImage = function (data) {
+    console.log(data)
+}
+var getRecipeTitle = function (data) {
+    console.log(data)
+}
+var getMissingIngredients = function (data) {
     data.forEach((element) => {
         if (element.name) {
             console.log(element.name);
         }
     });
 }
-var getUsedIngredients = function(data){
-    data.forEach((element) =>{
-        if (element.name){
+var getUsedIngredients = function (data) {
+    data.forEach((element) => {
+        if (element.name) {
             console.log(element.name)
         }
     })
 }
+
 
 
 //put recipe in cards
