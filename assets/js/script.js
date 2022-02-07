@@ -1,7 +1,7 @@
 //pages unique variables
 var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
-
+var recipeContainer = document.getElementById("recipe-container");
 var APIKey = "df6099c2176b4b1f92093d07eb64bc0b";
 
 //recipes search function
@@ -18,6 +18,7 @@ var getRecipes = function (value) {
             response.json()
         )
         .then(data => {
+          
             for (var i = 0; i < data.length; i++) {
                 console.log(data[i])
 
@@ -32,8 +33,8 @@ var getRecipes = function (value) {
                 let recipeTitle = data[i].title;
                 getRecipeTitle(recipeTitle)
 
-                let unusedIngredents = data[i].unusedIngredents
-                getUnusedIngredients(unusedIngredents)
+                let unusedIngredients = data[i].unusedIngredients
+                getUnusedIngredients(unusedIngredients)
 
                 let recipeId = data[i].id
                 getRecipeId(recipeId)
