@@ -1,7 +1,7 @@
 //pages unique variables
 var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
-var APIKey = " 80830b42e37b4c419acf7e905fe77297";
+var APIKey = "747b95ff173c4fafbf713579ed7b46a6";
 var recipeContainer = $("#recipe-container");
 
 //recipes search function
