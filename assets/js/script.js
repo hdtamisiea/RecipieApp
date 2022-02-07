@@ -49,8 +49,7 @@ var getRecipeId = function(id){
           <span class="card-title">${data.title}</span>
         </div>
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <p>${data.summary}</p>
         </div>
         <div class="card-action">
           <a href="${data.sourceurl}">Get recipe here!</a>
