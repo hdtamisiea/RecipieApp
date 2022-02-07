@@ -32,8 +32,8 @@ var getRecipes = function (value) {
                 let recipeTitle = data[i].title;
                 getRecipeTitle(recipeTitle)
 
-                let unusedIngredents = data[i].unusedIngredents
-                getUnusedIngredients(unusedIngredents)
+                let unusedIngredients = data[i].unusedIngredients
+                getUnusedIngredients(unusedIngredients)
 
                 let recipeId = data[i].id
                 getRecipeId(recipeId)
