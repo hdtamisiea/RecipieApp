@@ -1,9 +1,22 @@
-# Recipe App
-
-
-## USER STORY
-<img width="617" alt="Screen Shot 2022-02-01 at 9 41 02 PM" src="https://user-images.githubusercontent.com/94761193/152085283-c4f86e38-7715-4493-94f9-11680d716b83.png">
-
+# goRecette
+**As A** person who travels for work,  
+**I WANT** a website that provides healthy recipes and locations to buy ingredients,  
+**SO THAT** I can stay committed to my diet.
 
 ## Deployed Site
 [goRecette](https://lf56.github.io/goRecette/)
+
+## Made in Visual Studio using:
+1. HTML
+2. CSS
+3. JavaScript
+4. [Spoonacular Recipe and Food API](https://https://spoonacular.com/)
+5. [Materialize CSS](https://materializecss.com/)
+6. [Target Store API](https://rapidapi.com/logicbuilder/api/target-com-store-product-reviews-locations-data/)
+
+## Screenshots
+![ScreenShot]()
+
+### Features:
+* Search for recipes by ingredients
+* Search for the nearest Target stores by zip code
