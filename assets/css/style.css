@@ -12,7 +12,9 @@
   }
 
   #header {
-      background-color: #12255d;
+      background-image: url(../images/food.jpg);
+      background-position: center;
+      background-size: cover;
   }
 
   .app-title {
@@ -23,6 +25,10 @@
   .card {
       width: 250px;
       height: auto;
+  }
+
+  .card-image {
+      margin-top: 10px;
   }
 
   #header-img {
@@ -44,6 +50,7 @@
 
   #ingredient-form {
       background-color: var(--primary);
+      box-shadow: 10px 10px black;
   }
 
   .btn {
@@ -60,7 +67,8 @@
 
   #list-container {
       background-color: #abc5e0;
-      /* margin-left: 3px; */
+      box-shadow: 10px 10px black;
+     
   }
 
   #recipe-container {
@@ -83,7 +91,7 @@
   }
 
   body {
-    background-color: var(--light);
+    background-color: #12255d;
     margin: 5px;
     padding: 5px;
     font-family: Pesto, helvetica, sans-serif;
@@ -94,14 +102,14 @@
 
 /* css for target api container */
 
-#card {
+#target-form {
     background-color: rgb(255, 0, 0);
     box-shadow: 10px 10px black;
 }
 
 /*  css for form and button */
 .card-info {
-    color: rgb(255, 0 ,0);
+    color: white;
     text-shadow: 10px black;
     font-size: xx-large;
     text-align: center;
