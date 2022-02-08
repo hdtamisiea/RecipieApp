@@ -20,6 +20,11 @@
     left: auto;
   }
 
+  .card {
+      width: 250px;
+      height: auto;
+  }
+
   #header-img {
       width: 170px;
       height: 120px;
@@ -62,6 +67,9 @@
       color:#f5d506;
       padding-bottom: 3px;
       margin-bottom: 3px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
   }
 
   .recipe-line {

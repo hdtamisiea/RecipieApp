@@ -1,7 +1,7 @@
 //pages unique variables
 var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
-var APIKey = "747b95ff173c4fafbf713579ed7b46a6";
+var APIKey = "e9c63a1277874600b4b507be4d948249";
 var recipeContainer = $("#recipe-container");
 
 //recipes search function
@@ -41,8 +41,6 @@ var getRecipeId = function(id){
 
     //put recipe in cards
     recipeContainer.append(`
-    <div class="row">
-    <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
           <img src="${data.image}">
@@ -52,11 +50,9 @@ var getRecipeId = function(id){
           <p>${data.summary}</p>
         </div>
         <div class="card-action">
-          <a href="${data.sourceurl}">Get recipe here!</a>
+          <a href="${data.spoonacularSourceUrl}">Get recipe here!</a>
         </div>
       </div>
-    </div>
-  </div>
     `)
 
 
