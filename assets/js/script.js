@@ -1,6 +1,7 @@
 //pages unique variables
 var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
+// key entered by heather 2/8/22
 var APIKey = "d4e0d777f34d41bf918edcac7b1fe3e2";
 var recipeContainer = $("#recipe-container");
 

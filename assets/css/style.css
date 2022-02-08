@@ -1,3 +1,4 @@
+/* base colors */
 :root {
     --primary: #f5d506;
     --secondary: #12255d;
@@ -11,34 +12,31 @@
     box-sizing: border-box;
   }
 
+  /* image in background of header */
   #header {
       background-image: url(../images/food.jpg);
       background-position: center;
       background-size: cover;
   }
 
+  /* app title */
   .app-title {
     right: 0.5rem;
     left: auto;
   }
 
+  /* setting width for all cards */
   .card {
       width: 250px;
       height: auto;
   }
 
+  /* move image on cards down to match other margins */
   .card-image {
       margin-top: 10px;
   }
 
-  #header-img {
-      width: 170px;
-      height: 120px;
-      align-items: flex-start;
-  }
-
-  .header-text {
-      color:#f5d506;
+   .header-text {
       margin-left: 1em;
       margin-right: 1em;
   }
@@ -61,14 +59,19 @@
   .btn:hover {
       background-color: #274ec2;
   }
-  #maps-form {
-      background-color:#12255d;
-  }
-
+  
   #list-container {
       background-color: #abc5e0;
       box-shadow: 10px 10px black;
-     
+  }
+
+  #list-header {
+    font-weight: bolder;
+  }
+
+  #ingredient-text {
+    font-size: 1.8rem;
+    text-align: left;
   }
 
   #recipe-container {
@@ -108,18 +111,18 @@
 }
 
 /*  css for form and button */
-.card-info {
+.target-text {
     color: white;
     text-shadow: 10px black;
-    font-size: xx-large;
-    text-align: center;
+    font-size: 1.8rem;
+    text-align: left;
 }
 
 #card-header-id {
-    color: black;
+    color: white;
     text-shadow: 10px black;
-    font-size: small;
-    text-align: center;
+    font-size: 1.64rem;
+    text-align: left;
 }
 #zip-button {
     color:rgb(255, 0 ,0);
@@ -135,7 +138,7 @@
     background-color: rgb(255, 0 ,0);
     border-radius: 10px;
     color: white;
-    text-align: center;
+    text-align: left;
     margin-top: 30px;
 
 }
