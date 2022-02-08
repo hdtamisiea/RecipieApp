@@ -92,6 +92,43 @@
     font-size: 16px;
   }
 
+/* css for target api container */
 
+#card {
+    background-color: rgb(255, 0, 0);
+    box-shadow: 10px 10px black;
+}
 
+/*  css for form and button */
+.card-info {
+    color: rgb(255, 0 ,0);
+    text-shadow: 10px black;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#card-header-id {
+    color: black;
+    text-shadow: 10px black;
+    font-size: small;
+    text-align: center;
+}
+#zip-button {
+    color:rgb(255, 0 ,0);
+    text-shadow: 10px black;
+}
+
+#zip {
+    margin-top: 20px;
+}
+/* css for target created divs */
+
+.child {
+    background-color: rgb(255, 0 ,0);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+
+}
 
