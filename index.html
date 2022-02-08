@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,17 +59,18 @@
         </div>
 
         <div class="row">
-            <div id="maps-form" class="col s12 m12 l3">
+            <div id="card" class="col s12 m12 l3">
                 <div class="card">
                     <div class="card-image">
-                        <img src="./assets/images/maps.jpg">
+                        <img src="./assets/images/target-store.jpg">
+
                     </div>
-                    <div class="card-content">
-                        <p>Enter your zip code below for a list of nearby supermarkets:</p>
-                        <h5 class=“card-header text-uppercase col m4 l3”>Search by zip code here: </h5>
-                        <form id=“map-form” class=“card-body”>
-                            <input name="map" id="map" type=“text” autofocus=“true” class=“form-input” />
-                            <button type=“submit” class=“btn”>Get Map</button>
+                    <div class="card-content" id="results-container">
+                        <h1 class="card-info"  >Need to buy ingredients? Head to your local Target Store!</h1>
+                        <h5 id="card-header-id"class=“card-header text-uppercase col m4 l3”>Enter your zip code below for a list of nearby Target Stores:</h5>
+                        <form id=“target-form” class=“card-body”>
+                            <input name="map" id="zip" type=“text” autofocus=“true” placeholder="32751" />
+                            <button type=“submit” id="zip-button" class=“btn”>Find Target</button>
                         </form>
                     </div>
                 </div>
