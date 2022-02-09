@@ -4,6 +4,7 @@ var buttonEl = document.querySelector("#btn-search")
 // key entered by leah 2/8
 var APIKey = "f03e3391435141c3b9c073918195393b";
 var recipeContainer = $("#recipe-container");
+var saveIngredientArr = JSON.parse(localStorage.getItem("ingre"))
 
 //recipes search function
 
