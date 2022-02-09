@@ -1,8 +1,8 @@
 //pages unique variables
 var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
-// key entered by heather 2/8/22
-var APIKey = "d4e0d777f34d41bf918edcac7b1fe3e2";
+// key entered by leah 2/8
+var APIKey = "81c6c46f0a9344f2951ce2eff8cef15e";
 var recipeContainer = $("#recipe-container");
 
 //recipes search function
@@ -18,9 +18,9 @@ var getRecipes = function (value) {
         .then(response =>
             response.json()
         )
-        .then(data => {
-            for (var i = 0; i < data.length; i++) {
 
+        .then(data => {
+            for (var i = 0; i < 8; i++) {
                 let recipeId = data[i].id
                 getRecipeId(recipeId)
 
@@ -35,6 +35,7 @@ var getRecipeId = function(id){
     fetch(url)
     .then(response =>
         response.json()
+        
     )
     .then(data => {
     console.log(data)
@@ -45,10 +46,9 @@ var getRecipeId = function(id){
       <div class="card">
         <div class="card-image">
           <img src="${data.image}">
-          <span class="card-title">${data.title}</span>
         </div>
         <div class="card-content">
-          <p>${data.summary}</p>
+          <p>${data.title}</p>
         </div>
         <div class="card-action">
           <a href="${data.spoonacularSourceUrl}">Get recipe here!</a>
@@ -72,12 +72,6 @@ buttonEl.addEventListener("click", (e) => {
     var userInput = ingredientInputEl.value
     getRecipes(userInput)
 })
-
-
-
-
-
-
 
 
 // target api
