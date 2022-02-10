@@ -1,46 +1,98 @@
 //pages unique variables
 var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
+var ingredientFormEl = document.querySelector("#ingredient-form");
 // key entered by leah 2/8
-var APIKey = "f03e3391435141c3b9c073918195393b";
+var APIKey = "79f553ecde4b4d43809e9db33715eeca";
 var recipeContainer = $("#recipe-container");
-var saveIngredientArr = JSON.parse(localStorage.getItem("ingre"))
+// create an array to store searched ingredients. They will load right away if stored.  If none stored, the container will be empty.
+var saveIngredientArr = JSON.parse(localStorage.getItem("savedIngredients")) || [];
+
+console.log(saveIngredientArr)
+loadLocalStorage()
+function loadLocalStorage() {
+  let count = {}
+  saveIngredientArr.forEach((element) => {
+    count[element] = (count[element] || 0) + 1
+  })
+  console.log(count)
+  let countArr = Object.entries(count)
+  let empty = []
+  console.log(countArr)
+  countArr.forEach((element) => {
+    empty.push(element[0])
+  })
+  saveIngredientArr = empty
+  console.log(empty, saveIngredientArr)
+
+  loadRecent(saveIngredientArr)
+}
+
+function loadRecent(searchArr) {
+  for (i = 0; i < searchArr.length; i++) {
+    let value = searchArr[i]
+
+    var recentSearchBtn = document.createElement("button");
+    recentSearchBtn.textContent = value.toUpperCase();
+    document.querySelector(".recent-searches").append(recentSearchBtn);
+    recentSearchBtn.setAttribute("class", "btn-large");
+    recentSearchBtn.setAttribute("id", value);
+    recentSearchBtn.setAttribute("onclick", "getRecipes(event)");
+    recentSearchBtn.setAttribute("type", "submit");
+  }
+}
 
 //recipes search function
-
 var getRecipes = function (e) {
   e.preventDefault()
-  var value = ingredientInputEl.value
-  //     var ingredient = document.getElementById("ingredient").value;
-  // console.log(ingredient)
-recipeContainer.children().remove()
-  // console.log("searching recipes " + value);
-  //fetch API from spoonacular
+  console.log(e.target.id, e.target.innerHTML);
+  if (e.target.id == "btn-search") {
+    console.log("hello");
+    var value = ingredientInputEl.value
+  } else {
+    var value = e.target.innerHTML.toLowerCase()
+    console.log(e.target.value, e.target)
+  }
 
-  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=9")
-    .then(response =>
-      response.json()
-    )
+  recipeContainer.children().remove()
+ 
+  //fetch API from spoonacular
+  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=1")
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        return // call function her for modal
+      }
+    })
 
     .then(data => {
+      if (e.target.id == "btn-search") {
+        saveIngredientArr.push(document.querySelector("#ingredient").value)
+        localStorage.setItem("savedIngredients", JSON.stringify(saveIngredientArr));
+        createRecent(document.querySelector("#ingredient").value);
+      }
+      //  else {
+      //   var value = e.target.innerHTML.toLowerCase()
+      //   console.log(e.target.value, e.target)
+      // }
+
       console.log(data)
       for (var i = 0; i < data.length; i++) {
         let recipeId = data[i].id
         console.log(recipeId, i)
         getRecipeId(recipeId)
-
       }
     })
 }
 
 var getRecipeId = function (id) {
-  console.log(id)
+
   var url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIKey}`
 
   fetch(url)
     .then(response =>
       response.json()
-
     )
     .then(data => {
       console.log(data)
@@ -59,8 +111,28 @@ var getRecipeId = function (id) {
         </div>
       </div>
     `)
-
     })
+}
+
+// Create a new button for every new ingredient entered, this will be saved to local storage.  User can either type a new ingredient or choose a recent search button.
+var createRecent = function (value) {
+  var recentSearchBtn = document.createElement("button");
+
+  // set text contet of recent search button to be the ingredient typed by user - list in uppercase
+  recentSearchBtn.textContent = value.toUpperCase();
+
+  // Set attributes and append new search buttons
+  document.querySelector(".recent-searches").append(recentSearchBtn);
+  recentSearchBtn.setAttribute("class", "btn-large");
+  recentSearchBtn.setAttribute("id", value);
+  recentSearchBtn.setAttribute("onclick", "getRecipes(event)");
+  recentSearchBtn.setAttribute("type", "submit");
+}
+
+var formSubmitHandler = function (event) {
+  event.preventDefault();
+
+  ingredientFormEl.addEventListener("submit", formSubmitHandler)
 }
 
 // target api

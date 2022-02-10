@@ -33,6 +33,11 @@
       height: auto;
   }
 
+  .recent-searches {
+      color:white;
+      margin-bottom: 2em;
+  }
+
   /* move image on cards down to match other margins */
   .card-image {
       margin-top: 10px;
@@ -51,9 +56,13 @@
     height: auto;
   }
 
-  #ingredient-form {
+  #ingredient-box {
       background-color: var(--primary);
       box-shadow: 10px 10px black;
+  }
+
+  #ingredient-form {
+    background-color: var(--primary);
   }
 
   .btn {
@@ -110,7 +119,7 @@
 
 /* css for target api container */
 
-#target-form {
+#target-box {
     background-color: rgb(255, 0, 0);
     box-shadow: 10px 10px black;
 }
@@ -142,6 +151,5 @@
     color: white;
     text-align: left;
     margin-top: 30px;
-
 }
 

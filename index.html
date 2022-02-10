@@ -15,18 +15,7 @@
 </head>
 
 <body>
-    <!-- This is a navigation bar in case we want to change to using tabs to take us to target lookup or to maybe a favorites page -->
-    <!-- <nav>
-        <div id="header" class="nav-wrapper">
-            <a href="#" class="brand-logo right">goRecette</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="sass.html">Nav1</a></li>
-                <li><a href="badges.html">Nav2</a></li>
-                <li><a href="collapsible.html">Nav3</a></li>
-            </ul>
-        </div>
-    </nav> -->
-
+   
     <!-- header -->
     <header id="header" class="row hero">
         <h1 class="app-title white-text col s12 m12 l12 left-align">goRecette</h1>
@@ -37,18 +26,24 @@
     <main class="main">
         <div class="row">
             <!-- form to enter ingredient -->
-            <div id="ingredient-form" class="card col s12 m12 l3">
+            <div id="ingredient-box" class="card col s12 m12 l3">
                 <div class="card-image">
                     <img src="./assets/images/food-on-table-6.jpg">
                 </div>
                 <div class="card-content">
-                    <p id="ingredient-text">Search for a new recipe! Just enter an ingredient, and let us do the rest!</p>
+                    <p id="ingredient-text">Search for a new recipe! Just enter an ingredient, and let us do the rest!
+                    </p>
                     <h5 class=“card-header text-uppercase col m4 l3”>Search by ingredient here: </h5>
-                    <form id=“ingredient-form” class=“card-body”>
-                        <input name=“ingredient ” id=“ingredient” type=“text” autofocus=“true” class=“form-input” />
-                        <button type=“submit” id="btn-search" class=“btn” onclick="getRecipes(event)">Get Recipes</button>
+                    <form id="ingredient-form" class=“card-body”>
+                        <input name="ingredient" id="ingredient" type=“text” autofocus="true" placeholder="Enter ingredient here" class="form-input" />
+                        <button type="submit" id="btn-search" class=“btn” onclick="getRecipes(event)">Get
+                            Recipes</button>
                     </form>
                 </div>
+            </div>
+
+            <div class="recent-searches col s12 m12 l8 offset-l1">
+                <p>Recent Searches:</p>
             </div>
 
             <!-- Container to hold the returned recipes -->
@@ -61,7 +56,7 @@
 
         <!-- target api form -->
         <div class="row">
-            <div id="target-form" class="card col s12 m12 l3">
+            <div id="target-box" class="card col s12 m12 l3">
                 <div class="card-image">
                     <img src="./assets/images/target-store1.jpg">
                 </div>
@@ -70,8 +65,8 @@
                     <h5 id="card-header-id" class=“card-header text-uppercase col m4 l3”>Enter your zip code below for a
                         list of nearby Target Stores:</h5>
                     <form id=“target-form” class=“card-body”>
-                        <input name="map" id="zip" type=“text” autofocus=“true” placeholder="32751" />
-                        <button type=“submit” id="zip-button" class=“btn”>Find Target</button>
+                        <input name="map" id="zip" type=“text” autofocus="true" placeholder="Enter zip code here" />
+                        <button type="submit" id="zip-button" class=“btn”>Find Target</button>
                     </form>
                 </div>
             </div>
