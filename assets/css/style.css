@@ -38,6 +38,14 @@
       margin-bottom: 2em;
   }
 
+  #value {
+      margin-right: 0.5rem;
+  }
+
+  #recent-text {
+      font-size: 1.5rem;
+  }
+
   /* move image on cards down to match other margins */
   .card-image {
       margin-top: 10px;
@@ -63,6 +71,10 @@
 
   #ingredient-form {
     background-color: var(--primary);
+  }
+
+  #btn-large {
+      margin-right: 2px;
   }
 
   .btn {
