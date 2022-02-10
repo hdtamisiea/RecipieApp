@@ -10,6 +10,7 @@
   
   * {
     box-sizing: border-box;
+    
   }
 
   /* image in background of header */
@@ -23,12 +24,18 @@
   .app-title {
     right: 0.5rem;
     left: auto;
+    text-shadow: 2px 2px 2px black;
   }
 
   /* setting width for all cards */
   .card {
       width: 250px;
       height: auto;
+  }
+
+  .recent-searches {
+      color:white;
+      margin-bottom: 2em;
   }
 
   /* move image on cards down to match other margins */
@@ -39,6 +46,9 @@
    .header-text {
       margin-left: 1em;
       margin-right: 1em;
+      font-size: 1.5rem;
+      font-weight: bolder;
+      text-shadow: 2px 2px 2px black;
   }
 
   img {
@@ -46,9 +56,13 @@
     height: auto;
   }
 
-  #ingredient-form {
+  #ingredient-box {
       background-color: var(--primary);
       box-shadow: 10px 10px black;
+  }
+
+  #ingredient-form {
+    background-color: var(--primary);
   }
 
   .btn {
@@ -105,7 +119,7 @@
 
 /* css for target api container */
 
-#target-form {
+#target-box {
     background-color: rgb(255, 0, 0);
     box-shadow: 10px 10px black;
 }
@@ -113,20 +127,17 @@
 /*  css for form and button */
 .target-text {
     color: white;
-    text-shadow: 10px black;
     font-size: 1.8rem;
     text-align: left;
 }
 
 #card-header-id {
     color: white;
-    text-shadow: 10px black;
     font-size: 1.64rem;
     text-align: left;
 }
 #zip-button {
-    color:rgb(255, 0 ,0);
-    text-shadow: 10px black;
+    color:black;
 }
 
 #zip {
@@ -140,6 +151,5 @@
     color: white;
     text-align: left;
     margin-top: 30px;
-
 }
 
