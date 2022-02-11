@@ -53,27 +53,37 @@ var getRecipes = function (e) {
   recipeContainer.children().remove()
 
   //fetch API from spoonacular by ingredient which provides the id number needed to get the actual recipes
-  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=6")
+  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=3")
     .then(response => {
       if (response.ok) {
         return response.json()
       } else {
-        return // call function her for modal
+        return
       }
     })
 
     .then(data => {
-      if (e.target.id == "btn-search") {
-        saveIngredientArr.push(document.querySelector("#ingredient").value)
-        localStorage.setItem("savedIngredients", JSON.stringify(saveIngredientArr));
-        createRecent(document.querySelector("#ingredient").value);
-      }
 
-      for (var i = 0; i < data.length; i++) {
-        let recipeId = data[i].id
-        getRecipeId(recipeId)
+      if (data.length > 0) {
+        console.log(data)
+        if (e.target.id == "btn-search") {
+          saveIngredientArr.push(document.querySelector("#ingredient").value)
+          localStorage.setItem("savedIngredients", JSON.stringify(saveIngredientArr));
+          createRecent(document.querySelector("#ingredient").value);
+        }
+
+        for (var i = 0; i < data.length; i++) {
+          let recipeId = data[i].id
+          getRecipeId(recipeId)
+        }
+      } else {
+        ModalWindow.openModal({
+          title: "Please try again.",
+          content: "Not a valid search term."
+        });
       }
-    })
+    }
+    )
 }
 
 // Function to get recipes using id generated in getRecipes function
@@ -115,11 +125,6 @@ var createRecent = function (value) {
   recentSearchBtn.setAttribute("type", "submit");
 }
 
-var formSubmitHandler = function (event) {
-  event.preventDefault();
-  ingredientFormEl.addEventListener("submit", formSubmitHandler)
-}
-
 // target api
 
 // var that links button id to event listener
@@ -137,7 +142,7 @@ var targetLocation = function (zip) {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": "target-com-store-product-reviews-locations-data.p.rapidapi.com",
-      "x-rapidapi-key": "fdaba43e99msh6857b604df1bd9dp17d280jsn82e4062b7f4f"
+      "x-rapidapi-key": "fbe244902emshcd73a928933abd7p1da1cdjsna4f2adc4134e"
     }
   })
     .then(response => {
@@ -213,7 +218,10 @@ var targetLocation = function (zip) {
 
         // if user does not input a zip code app replies with alert
       } else {
-        alert("No Target Store within 25 mile radius");
+        ModalWindow.openModal({
+          title: "Please try again.",
+          content: "No Target Store within 25 mile radius."
+        });
       }
     })
 
@@ -221,7 +229,6 @@ var targetLocation = function (zip) {
     .catch(err => {
       console.error(err);
     });
-
 }
 
 // submission function passed into event listener with user inputed zip code 
@@ -234,9 +241,59 @@ var targetSubmit = function (event) {
     targetLocation(zip);
 
   } else {
-    alert("Please enter valid zipcode");
+    ModalWindow.openModal({
+      title: "Please re-enter",
+      content: "That is an invalid zip code."
+    });
   }
 }
 
 // event listener that on click runs input function with zip code to API call to recieve data
 zipBtn.addEventListener("click", targetSubmit);
+
+// Modal window javascript
+const ModalWindow = {
+  init() {
+    document.body.addEventListener("click", e => {
+      if (e.target.classList.contains("modal__close")) {
+        this.closeModal(e.target);
+      }
+    });
+    this.openModal();
+  },
+
+  getHtmlTemplate(modalOptions) {
+    return `
+          <div class="modal__overlay">
+              <div class="modal__window">
+                  <div class="modal__titlebar">
+                      <span class="modal__title">${modalOptions.title}</span>
+                      <button class="modal__close material-icons">close</button>
+                  </div>
+                  <div class="modal__content">
+                      ${modalOptions.content}
+                  </div>
+              </div>
+          </div>
+      `;
+  },
+
+  openModal(modalOptions = {}) {
+    modalOptions = Object.assign({
+      title: 'Close this box when you are ready to begin!',
+      content: 'You can search recipes for any ingredient!  Just type it into the yellow box and click "Get Recipes"!  Find a local grocery store by entering your zip code into the red box!'
+    }, modalOptions);
+
+    const modalTemplate = this.getHtmlTemplate(modalOptions);
+    document.body.insertAdjacentHTML("afterbegin", modalTemplate);
+  },
+
+  closeModal(closeButton) {
+    const modalOverlay = closeButton.parentElement.parentElement.parentElement;
+    document.body.removeChild(modalOverlay);
+
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => ModalWindow.init());
+
