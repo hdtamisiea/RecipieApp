@@ -5,10 +5,15 @@ var ingredientFormEl = document.querySelector("#ingredient-form");
 // key entered by leah 2/8
 var APIKey = "f03e3391435141c3b9c073918195393b";
 var recipeContainer = $("#recipe-container");
+
+
 // create an array to store searched ingredients. They will load right away if stored.  If none stored, the container will be empty.
 var saveIngredientArr = JSON.parse(localStorage.getItem("savedIngredients")) || [];
 
-// Function to set load local storage info into our recent search array
+
+// console.log(saveIngredientArr)
+
+
 loadLocalStorage()
 function loadLocalStorage() {
   let count = {}
@@ -17,10 +22,16 @@ function loadLocalStorage() {
   })
   let countArr = Object.entries(count)
   let empty = []
+
+  // console.log(countArr)
+
   countArr.forEach((element) => {
     empty.push(element[0])
   })
   saveIngredientArr = empty
+
+  // console.log(empty, saveIngredientArr)
+
 
   loadRecent(saveIngredientArr)
 }
@@ -43,17 +54,34 @@ function loadRecent(searchArr) {
 //recipes search by ingredient function
 var getRecipes = function (e) {
   e.preventDefault()
+
+  // console.log(e.target.id, e.target.innerHTML);
+  if (e.target.id == "btn-search") {
+   
+    var value = ingredientInputEl.value
+  } else {
+    var value = e.target.innerHTML.toLowerCase()
+    // console.log(e.target.value, e.target)
+
   if (e.target.id == "btn-search") {
     var value = ingredientInputEl.value
   } else {
     var value = e.target.innerHTML.toLowerCase()
+
   }
 
   // Clear recipe container before adding a new ingredient's recipes
   recipeContainer.children().remove()
 
-  //fetch API from spoonacular by ingredient which provides the id number needed to get the actual recipes
+ 
+  //fetch API from spoonacular
   fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=3")
+
+
+  //fetch API from spoonacular by ingredient which provides the id number needed to get the actual recipes
+
+  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=3")
+
     .then(response => {
       if (response.ok) {
         return response.json()

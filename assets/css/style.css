@@ -76,6 +76,14 @@
       background-color: #12255d; 
       color:white;
   }
+  .btn-large {
+    height: 54px;
+    line-height: 54px;
+    font-size: 15px;
+    padding: 0 28px;
+    margin: 8px;
+
+  }
 
   .btn-large {
     height: 54px;
@@ -222,6 +230,7 @@
     font-size: 0.9em;
 }
 
+
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
     #header {
@@ -299,4 +308,9 @@
       
     }
     
+
   }
+
+  }
+}
+
