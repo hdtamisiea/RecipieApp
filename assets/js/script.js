@@ -3,12 +3,14 @@ var ingredientInputEl = document.querySelector("input");
 var buttonEl = document.querySelector("#btn-search")
 var ingredientFormEl = document.querySelector("#ingredient-form");
 // key entered by leah 2/8
-var APIKey = "79f553ecde4b4d43809e9db33715eeca";
+var APIKey = "f03e3391435141c3b9c073918195393b";
 var recipeContainer = $("#recipe-container");
+
+
 // create an array to store searched ingredients. They will load right away if stored.  If none stored, the container will be empty.
 var saveIngredientArr = JSON.parse(localStorage.getItem("savedIngredients")) || [];
 
-console.log(saveIngredientArr)
+// console.log(saveIngredientArr)
 loadLocalStorage()
 function loadLocalStorage() {
   let count = {}
@@ -18,12 +20,12 @@ function loadLocalStorage() {
   console.log(count)
   let countArr = Object.entries(count)
   let empty = []
-  console.log(countArr)
+  // console.log(countArr)
   countArr.forEach((element) => {
     empty.push(element[0])
   })
   saveIngredientArr = empty
-  console.log(empty, saveIngredientArr)
+  // console.log(empty, saveIngredientArr)
 
   loadRecent(saveIngredientArr)
 }
@@ -45,19 +47,19 @@ function loadRecent(searchArr) {
 //recipes search function
 var getRecipes = function (e) {
   e.preventDefault()
-  console.log(e.target.id, e.target.innerHTML);
+  // console.log(e.target.id, e.target.innerHTML);
   if (e.target.id == "btn-search") {
-    console.log("hello");
+   
     var value = ingredientInputEl.value
   } else {
     var value = e.target.innerHTML.toLowerCase()
-    console.log(e.target.value, e.target)
+    // console.log(e.target.value, e.target)
   }
 
   recipeContainer.children().remove()
  
   //fetch API from spoonacular
-  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=1")
+  fetch("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + value + "&apiKey=" + APIKey + "&number=3")
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -72,15 +74,8 @@ var getRecipes = function (e) {
         localStorage.setItem("savedIngredients", JSON.stringify(saveIngredientArr));
         createRecent(document.querySelector("#ingredient").value);
       }
-      //  else {
-      //   var value = e.target.innerHTML.toLowerCase()
-      //   console.log(e.target.value, e.target)
-      // }
-
-      console.log(data)
       for (var i = 0; i < data.length; i++) {
         let recipeId = data[i].id
-        console.log(recipeId, i)
         getRecipeId(recipeId)
       }
     })
@@ -95,7 +90,6 @@ var getRecipeId = function (id) {
       response.json()
     )
     .then(data => {
-      console.log(data)
 
       //put recipe in cards
       recipeContainer.append(`
@@ -158,7 +152,7 @@ var targetLocation = function (zip) {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": "target-com-store-product-reviews-locations-data.p.rapidapi.com",
-      "x-rapidapi-key": "fdaba43e99msh6857b604df1bd9dp17d280jsn82e4062b7f4f"
+      "x-rapidapi-key": "fbe244902emshcd73a928933abd7p1da1cdjsna4f2adc4134e"
     }
   })
     .then(response => {
