@@ -4,7 +4,7 @@
 **SO THAT** I can stay committed to my diet.
 
 ## Deployed Site
-[goRecette](https://lf56.github.io/goRecette/)
+[goRecette](https://hdtamisiea.github.io/goRecette/)
 
 ## Made in Visual Studio using:
 1. HTML
