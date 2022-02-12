@@ -10,12 +10,13 @@
 1. HTML
 2. CSS
 3. JavaScript
-4. [Spoonacular Recipe and Food API](https://https://spoonacular.com/)
-5. [Materialize CSS](https://materializecss.com/)
-6. [Target Store API](https://rapidapi.com/logicbuilder/api/target-com-store-product-reviews-locations-data/)
+4. [jQuery](https://jquery.com/)
+5. [Spoonacular Recipe and Food API](https://https://spoonacular.com/)
+6. [Materialize CSS](https://materializecss.com/)
+7. [Target Store API](https://rapidapi.com/logicbuilder/api/target-com-store-product-reviews-locations-data/)
 
 ## Screenshots
-![ScreenShot]()
+![ScreenShot](./assets/images/page.png)
 
 ### Features:
 * Search for recipes by ingredients
